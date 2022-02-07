@@ -23,10 +23,12 @@
 		align-items: center;
 		position: relative;
 		z-index: 95;
+		@media (min-width: $mobile) {
+			@include adaptiveValue("column-gap", 20, 10); 
+		}
 	}
 }
 @import "_header__logo";// ====================  here Logo  ==================== //
-/* ===================================  Menu body  --Start--  =================================== */
 /* ====================  Menu list  ==================== */
 // .menu__list 
 .menu__list {
@@ -34,10 +36,10 @@
 		padding: 10px 6px;
 		display: flex;
 		flex-wrap: wrap;
-		justify-content: space-evenly;
+		justify-content: space-around;
 		align-items: center;
-		column-gap: 50px;
-		row-gap: 6px;
+		@include adaptiveValue("column-gap", 50, 30);
+		@include adaptiveValue("row-gap", 12, 6);
 	}
 	@media (max-width: $mobile) {
 		@include adaptiveValue("margin-left", 150, 35);
@@ -191,5 +193,4 @@
 	}
 }
 @import "dropdownlist/_dropdown__list";// ====================  here Dropdown list  ==================== //
-/* ===================================  Menu body  --End--  =================================== */
 /* ===================================  Header  --End--  =================================== */

@@ -1,12 +1,13 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="lock">
 @@include('html/_head.htm',{
 "title":"myStartTemplate"
 })
 <body>
 	@@include('html/_progressbar.htm',{})
+	@@include('html/_preloader.htm',{})
 	<!---------------------------------------------  Wrapper  --Start--  --------------------------------------------->
-	<div class="wrapper">
+	<div class="wrapper _done">
 		@@include('html/_header.htm',{})
 		<!-----------------------------------  Page  --Start--  ----------------------------------->
 		<main class="page">
