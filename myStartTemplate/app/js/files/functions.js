@@ -681,15 +681,15 @@ export function progressBar() {
 	}
 }
 /* ===================================  Progress Bar  --End--  =================================== */
-function remSreenWidth() {
-	let remSreenWidth = (window.innerWidth / 16);
-	let mobileSreenWidth = 47.99875;
-	return mobileSreenWidth <= remSreenWidth;
+export function emSreenWidth(mobileSreenWidth = 767.98) {
+	let numberDefault = 16;
+	let emSreenWidth = (window.innerWidth / numberDefault);
+	return (mobileSreenWidth / numberDefault) <= emSreenWidth;
 }
 /* ====================  Delete an asset if the screen size is larger than 767px  --Start--  ==================== */
 
 export function deleteActiveWindowLarger767px() {
-	if (remSreenWidth()) {
+	if (emSreenWidth()) {
 		if (document.querySelector(".icon-menu").classList.contains("_active") || document.documentElement.classList.contains("lock")) {
 			menuClose();
 		}
@@ -718,7 +718,7 @@ export function menuListSubLists() {
 		for (let index = 0; index < menuListSubLists.length; index++) {
 			const menuListSubList = menuListSubLists[index];
 			menuListSubList.addEventListener("click", function (e) {
-				if (document.documentElement.classList.contains("_touch") || !remSreenWidth()) {
+				if (document.documentElement.classList.contains("_touch") || !emSreenWidth()) {
 					if (!menuListSubList.parentElement.classList.contains("_active")) {
 						document.querySelectorAll(".menu__list_sublist").forEach((el) => {
 							if (el.classList.contains("_active")) {
@@ -731,7 +731,7 @@ export function menuListSubLists() {
 					}
 				}
 			});
-			if (remSreenWidth()) {
+			if (emSreenWidth()) {
 				menuListSubList.parentElement.classList.contains('_active');
 				document.body.addEventListener("click", function (e) {
 					if (!e.target.closest(".menu__list_sublist")) {

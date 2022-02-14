@@ -66,11 +66,19 @@
 		"scope": "html, htm",
 		"prefix": "ibg",
 		"body": [
-			"<div class=\"hi__ibg _ibg\">",
-			"	<img src=\"img/background-image/bgi-01.png\" alt=\"background\">",
+			"<div class=\"${1:hi}__ibg _ibg\">",
+			"\t<img src=\"img/background-image/bgi-01.png\" alt=\"background\">",
 			"</div>",
 		],
 		"description": "ibg"
+	},
+	"img": {
+		"scope": "html, htm",
+		"prefix": "imgg",
+		"body": [
+			"<img src=\"@img/$0\" alt=\"img\">",
+		],
+		"description": "img"
 	},
 	"htmlAnime": {
 		"scope": "html, htm",
@@ -829,22 +837,6 @@
 		],
 		"description": "Добавляет атрибут динамического адаптива"
 	},
-	"Add image IBG": {
-		"scope": "html, htm",
-		"prefix": "ibg",
-		"body": [
-			"<div class=\"${1:имя блока}__image-ibg\"><img data-src=\"@img$2\" alt=\"\"></div>"
-		],
-		"description": "Добавляет объект с картинкой и классом IBG"
-	},
-	"Add Link with image IBG": {
-		"scope": "html, htm",
-		"prefix": "ibga",
-		"body": [
-			"<a href=\"\" class=\"${1:имя блока}__image-ibg\"><img data-src=\"@img$2\" alt=\"\"></a>"
-		],
-		"description": "Добавляет ссылку с картинкой и классом IBG"
-	},
 	"Add input tag": {
 		"scope": "html, htm",
 		"prefix": "inp",
@@ -861,7 +853,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "av",
 		"body": [
-			"@include adaptiveValue(\"${1:padding}\", $2, $3);"
+			"@include adaptiveValue(\"${1:padding}\", 00, 00);"
 		],
 		"description": "Адаптивное свойство: CSS-свойство, начальное значение, конечное значение, ширина начальная, ширина конечная"
 	},
@@ -983,16 +975,10 @@
 		],
 		"description": "Исключая последний объект"
 	},
-	"Opacity": {
-		"scope": "scss, sass, lass",
-		"prefix": "op",
-		"body": "opacity: ${1:0};",
-		"description": "Добавляет относительный opacity"
-	},
 	"Line height": {
 		"scope": "scss, sass, lass",
 		"prefix": "lh",
-		"body": "line-height: math.div($1 , $2);",
+		"body": "line-height: math.div( $1, 00);",
 		"description": "Добавляет относительный line-height"
 	},
 	"Color inherit": {
@@ -1160,7 +1146,7 @@
 	},
 	"hhv": {
 		"scope": "scss, sass, lass",
-		"prefix": "hhv",
+		"prefix": "anyhover",
 		"body": [
 			"@media (any-hover: hover) {\n\t&:hover{\n\t\t$0\n\t}\n}"
 		],
@@ -1193,7 +1179,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "md1",
 		"body": [
-			"@media (max-width: \\$pc) {\n\t $0 \n}"
+			"@media (max-width: \\$pc) {\n\t$0\n}"
 		],
 		"description": "md1"
 	},
@@ -1201,7 +1187,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "mmd1",
 		"body": [
-			"@media (min-width: \\$pc) {\n\t $0 \n}"
+			"@media (min-width: \\$pc) {\n\t$0\n}"
 		],
 		"description": "md1"
 	},
@@ -1217,7 +1203,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "mmd2",
 		"body": [
-			"@media (min-width: \\$tablet) {\n\t $0 \n}"
+			"@media (min-width: \\$tablet) {\n\t$0\n}"
 		],
 		"description": "md1"
 	},
@@ -1225,7 +1211,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "md3",
 		"body": [
-			"@media (max-width: \\$mobile) {\n\t $0 \n}"
+			"@media (max-width: \\$mobile) {\n\t$0\n}"
 		],
 		"description": "md3"
 	},
@@ -1233,7 +1219,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "mmd3",
 		"body": [
-			"@media (min-width: \\$mobile) {\n\t $0 \n}"
+			"@media (min-width: \\$mobile) {\n\t$0\n}"
 		],
 		"description": "md1"
 	},
@@ -1241,7 +1227,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "md4",
 		"body": [
-			"@media (max-width: \\$mobileSmall) {\n\t $0 \n}"
+			"@media (max-width: \\$mobileSmall) {\n\t$0\n}"
 		],
 		"description": "md4"
 	},
@@ -1249,7 +1235,7 @@
 		"scope": "scss, sass, lass",
 		"prefix": "mmd4",
 		"body": [
-			"@media (min-width: \\$mobileSmall) {\n\t $0 \n}"
+			"@media (min-width: \\$mobileSmall) {\n\t$0\n}"
 		],
 		"description": "md1"
 	},
@@ -1379,9 +1365,15 @@
 		"description": "str"
 	},
 	"nowrap": {
-		"scope": "html, htm, kit",
+		"scope": "css, sass, scss, lass",
 		"prefix": "wsnw",
 		"body": "white-space: nowrap;",
 		"description": "nowrap"
+	},
+	"spollersTitle": {
+		"scope": "sass, scss, lass",
+		"prefix": "spollersTitle",
+		"body": "width: 100%;\ncursor: default;\ntext-align: left;\nborder: 1px solid #eee;\npadding: rem(10) rem(15);\nborder-radius: rem(5);\nposition: relative;\n._spoller-init & {\n\tcursor: pointer;\n\t&::before,\n\t&::after {\n\t\tcontent: \"\";\n\t\tposition: absolute;\n\t\tright: 10px;\n\t\ttop: 50%;\n\t\tbackground-color: #000;\n\t\theight: 2px;\n\t\twidth: 15px;\n\t\ttransition: transform 0.5s ease 0s;\n\t}\n\t&::before {\n\t\ttransform: translate(-75%, -50%) rotate(40deg);\n\t}\n\t&::after {\n\t\ttransform: translate(0, -50%) rotate(-40deg);\n\t}\n\t&._spoller-active {\n\t\t&::before {\n\t\ttransform: translateX(-75%) rotate(-40deg);\n\t\t}\n\t\t&::after {\n\t\ttransform: rotate(40deg);\n\t\t}\n\t}\n}",
+		"description": "spollers__title"
 	},
 }
