@@ -1,0 +1,43 @@
+/* =============================================  Scroll Up Button  --Start--  ============================================= */
+.up__button {
+	position: fixed;
+	@include adaptiveValue("bottom", 44, 33, 767.98);
+	@include adaptiveValue("bottom", 33, 20, 0, 767.98);
+	@include adaptiveValue("right", 12, 10, 767.98);
+	@include adaptiveValue("right", 12, 8, 0, 767.98);
+    z-index: 80;
+	pointer-events: none;
+    cursor: pointer;
+	opacity: 0;
+    visibility: hidden;
+	-webkit-tap-highlight-color: $clickByTouchColor0;
+	transition: opacity 0.52s ease 0s;
+	&._active {
+		pointer-events: all;
+		opacity: 1;
+		visibility: visible;
+	}
+}
+.up__button_icon {
+	padding: toRem(12);
+	color: $colorBlack;
+	@include adaptiveValue("font-size", 30, 22);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: $colorGainsboro;
+    box-shadow: toRem(0) toRem(0) toRem(2) toRem(0) $colorGainsboro,
+				toRem(0) toRem(0) toRem(4) toRem(0) $colorGainsboro,
+				toRem(0) toRem(0) toRem(6) toRem(0) $colorGainsboro,
+				toRem(0) toRem(0) toRem(10) toRem(0) $colorGainsboro;
+	transition: all 0.4s ease-in-out 0s;
+	@media (any-hover: hover) {
+		html._pc &:hover {
+			box-shadow: toRem(0) toRem(0) toRem(5) toRem(0) $colorGainsboro,
+						toRem(0) toRem(0) toRem(7) toRem(0) $colorGainsboro,
+						toRem(0) toRem(0) toRem(10) toRem(0) $colorGainsboro,
+						toRem(0) toRem(0) toRem(14) toRem(0) $colorGainsboro;
+		}
+	}
+}
+/* =============================================  Scroll Up Button  --End--  ============================================= */
